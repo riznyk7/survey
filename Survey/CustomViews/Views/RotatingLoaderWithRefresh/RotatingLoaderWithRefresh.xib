@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RotatingLoaderWithRefresh" customModule="HiveOnline" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="387" height="352"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="f5I-YH-peU">
+                    <rect key="frame" x="0.0" y="0.0" width="387" height="352"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDs-3m-pi1" customClass="CircleRotatingLoader" customModule="HiveOnline" customModuleProvider="target">
+                            <rect key="frame" x="168.5" y="0.0" width="50" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="dDs-3m-pi1" secondAttribute="height" multiplier="1:1" id="YYp-7G-KPs"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEz-nQ-M0H">
+                            <rect key="frame" x="177.5" y="70" width="32" height="36"/>
+                            <state key="normal" image="reload_items_icon"/>
+                            <connections>
+                                <action selector="didTouchRetry" destination="iN0-l3-epB" eventType="touchUpInside" id="Diq-uz-9ah"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJO-eo-4us">
+                            <rect key="frame" x="168.5" y="126" width="50.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                            <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB3-uj-byQ">
+                            <rect key="frame" x="0.0" y="162" width="387" height="190"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.97254901959999995" green="0.30196078430000001" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="f5I-YH-peU" secondAttribute="trailing" id="5k5-72-gl7"/>
+                <constraint firstItem="f5I-YH-peU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pWY-FD-qvb"/>
+                <constraint firstItem="f5I-YH-peU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="vR9-fe-aN5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="f5I-YH-peU" secondAttribute="bottom" id="xxJ-nB-7Ze"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="emptyListDescriptionLabel" destination="hB3-uj-byQ" id="5L2-5n-MEA"/>
+                <outlet property="loaderView" destination="dDs-3m-pi1" id="pEf-d4-sxk"/>
+                <outlet property="loadingViewTitleLabel" destination="xJO-eo-4us" id="iQN-1N-v5k"/>
+                <outlet property="reloadButton" destination="gEz-nQ-M0H" id="aaK-Ja-Occ"/>
+            </connections>
+            <point key="canvasLocation" x="43.5" y="-98"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="reload_items_icon" width="32" height="36"/>
+    </resources>
+</document>
